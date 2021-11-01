@@ -54,23 +54,21 @@ app.use('/graphql', graphqlHttp.graphqlHTTP({
             throw err;
           });
         },
-        createEmployee: (args) => {
-            const employee = new Employee({
+        createEmployee: async args => {
+            try{
+                const employee = new Employee({
                 name: args.employeeInput.name,
                 location: args.employeeInput.location,
                 email: args.employeeInput.email,
                 phone: args.employeeInput.phone,
                 picture: args.employeeInput.picture
             });
-            return employee.save()
-            .then(result => {
-                console.log(result);
-                return { ...result._doc,  _id: result.id};
-            })
-            .catch(err => {
+            return await employee.save();
+            }   
+            catch (err) {
                 console.log(err);
-                throw err;
-            })
+                throw new Error("New Employee Not Created: ", err);
+            }
         }
     },
     graphiql: true
