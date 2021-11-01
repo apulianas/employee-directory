@@ -5,15 +5,14 @@ const Employee = require('../../models/employee')
 const  employees = async employeeIds => {
         try{
             const employees = await Employee.find({ _id: { $in: employeeIds} });
-            employees.map(employee =>{
+            return employees.map(employee =>{
                 return {
                     ...employee._doc,
                     _id: employee.id
                 };
             });
-            return employees;
         }catch (err) {
-            throw errl
+            throw err;
         }
     };
 
