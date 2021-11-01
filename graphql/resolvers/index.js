@@ -1,5 +1,4 @@
 const { model } = require('mongoose');
-const employee = require('../../models/employee');
 const Employee = require('../../models/employee')
 
 const  employees = async employeeIds => {
@@ -36,6 +35,7 @@ module.exports = {
     try{
         const employee = new Employee({
         name: args.employeeInput.name,
+        title: args.employeeInput.title,
         location: args.employeeInput.location,
         email: args.employeeInput.email,
         phone: args.employeeInput.phone,

@@ -4,6 +4,7 @@ module.exports = buildSchema(`
         type Employee {
             _id: ID!
             name: String!
+            title: String!
             location: String!
             email: String!
             phone: String!
@@ -12,6 +13,7 @@ module.exports = buildSchema(`
 
         input EmployeeInput {
             name: String!
+            title: String!
             location: String!
             email: String!
             phone: String!
