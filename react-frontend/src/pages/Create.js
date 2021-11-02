@@ -9,6 +9,7 @@ class CreatePage extends Component {
         this.emailElement = React.createRef();
         this.phoneElement = React.createRef();
         this.pictureElement = React.createRef();
+        this.submitHandler = this.submitHandler.bind(this);
     }
 
     submitHandler = event => {
@@ -21,53 +22,51 @@ class CreatePage extends Component {
         const picture = this.pictureElement.current.value;
 
         
-        const requestBody = {
+        /*const requestBody = {
             query: `
-                query {
+                mutation {
                     createEmployee(employeeInput: {name: "${name}", title: "${title}", location: "${location}", email: "${email}", phone: "${phone}", picture: "${picture}") {
                         _id
                         name
                     }
                 }
             `
-        };
+        };*/
 
         fetch('http://localhost:8000/graphql', {
             method: 'POST',
-            body: JSON.stringify(requestBody),
-            headers: {
-                'Content-Type': 'application/json'
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                query: `
+        mutation {
+            createEmployee (
+            employeeInput: {name: "${name}", title: "${title}", location: "${location}", email: "${email}", phone: "${phone}", picture: "${picture}"}) {
+                _id
+                name
             }
+        }`,
+            }),
         })
-        .then(res => {
-            if (res.status !== 200 && res.status !== 201) {
-                throw new Error('Failed to create new employee');
-            }
-            return res.json();
-        })
-        .then(resData => {
-            console.log(resData);
-        })
-        .catch(err => {
-            console.log(err)
-        })
+        .then((res) => res.json())
+        .then((result) => console.log(result));
+        
     }
     render() {
         return (
             <form>
                 <div className="form-control" onSubmit={this.submitHandler}>
                     <label htmlFor="name">Name</label>
-                    <input type="text" id="name" ref={this.nameElement} />
+                    <input type="text" id="name" value={this.nameElement} />
                     <label htmlFor="title">Title</label>
-                    <input type="text" id="title" ref={this.titleElement} />
+                    <input type="text" id="title" value={this.titleElement} />
                     <label htmlFor="location">Location</label>
-                    <input type="text" id="location" ref={this.locationElement} />
+                    <input type="text" id="location" value={this.locationElement} />
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" ref={this.emailElement} />
+                    <input type="email" id="email" value={this.emailElement} />
                     <label htmlFor="phone">Phone</label>
-                    <input type="phone" id="phone" ref={this.phoneElement} />
+                    <input type="phone" id="phone" value={this.phoneElement} />
                     <label htmlFor="text">Picture</label>
-                    <input type="picture" id="picture" ref={this.pictureElement} />
+                    <input type="picture" id="picture" value={this.pictureElement} />
                 </div>
                 <div className="form-actions">
                     <button type="submit">Submit</button>
