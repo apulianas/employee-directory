@@ -24,7 +24,7 @@ class CreatePage extends Component {
         const requestBody = {
             query: `
                 query {
-                    createEmployee(employeeInput: {name: "${name}", title: "${title}}, location: "${location}", email: "${email}", phone: "${phone}", picture: "${picture}") {
+                    createEmployee(employeeInput: {name: "${name}", title: "${title}", location: "${location}", email: "${email}", phone: "${phone}", picture: "${picture}") {
                         _id
                         name
                     }
