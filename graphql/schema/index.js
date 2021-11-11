@@ -8,7 +8,7 @@ module.exports = buildSchema(`
             location: String!
             email: String!
             phone: String!
-            picture: String = null
+            picture: String
         }
 
         input EmployeeInput {

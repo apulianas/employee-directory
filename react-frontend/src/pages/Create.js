@@ -50,20 +50,32 @@ function CreatePage() {
     return (
         <form onSubmit = {handleSubmit}>
             <div>
-                <label>Name</label>
-                <input type="text" id="name" onChange={handleNameChange} value={name} />
-                <label>Title</label>
-                <input type="text" id="title" onChange={handleTitleChange} value={title}/>
-                <label>Location</label>
-                <input type="text" id="location" onChange={handleLocationChange} value={location}/>
-                <label>Email</label>
-                <input type="email" id="email" onChange={handleEmailChange} value={email}/>
-                <label>Phone</label>
-                <input type="phone" id="phone" onChange={handlePhoneChange} value={phone}/>
-                <label>Picture</label>
-                <input type="picture" id="picture" onChange={handlePictureChange} value={picture}/>
+                <div className="text-center m-5">
+                    <label>Name: </label>
+                    <input type="text" id="name" onChange={handleNameChange} value={name} />
+                </div>
+                <div className="text-center m-5">
+                    <label>Title: </label>
+                    <input type="text" id="title" onChange={handleTitleChange} value={title}/>
+                </div>
+                <div className="text-center m-5">
+                    <label>Location: </label>
+                    <input type="text" id="location" onChange={handleLocationChange} value={location}/>
+                </div>
+                <div className="text-center m-5">
+                    <label>Email: </label>
+                    <input type="email" id="email" onChange={handleEmailChange} value={email}/>
+                </div>
+                <div className="text-center m-5">
+                    <label>Phone: </label>
+                    <input type="phone" id="phone" onChange={handlePhoneChange} value={phone}/>
+                </div>
+                <div className="text-center m-5">
+                    <label>Picture Link: </label>
+                    <input type="picture" id="picture" onChange={handlePictureChange} value={picture}/>
+                </div>
             </div>
-            <div className="form-actions">
+            <div className="form-actions text-center m-5">
                 <button type="submit">Submit</button>
             </div>
         </form>

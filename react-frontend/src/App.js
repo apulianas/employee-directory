@@ -6,6 +6,7 @@ import CreatePage from './pages/Create';
 import './App.css';
 
 import {ApolloProvider, ApolloClient, InMemoryCache, useQuery, gql} from "@apollo/client";
+import AdminPage from './pages/Admin';
 
 const App = () => {
   //grab contacts from database 
@@ -21,6 +22,7 @@ const App = () => {
           <Redirect from="/" to="/directory" exact />
           <Route path="/directory" component={DirectoryPage} />
           <Route path="/create" component={CreatePage} />
+          <Route path="/admin" component={AdminPage} />
         </Switch>
       </BrowserRouter>
     </ApolloProvider> 
