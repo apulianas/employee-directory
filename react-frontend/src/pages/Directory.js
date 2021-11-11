@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import ContactCell from '../ContactCell';
 
-
 function DirectoryPage() {
     const [employeesData, setEmployeesData] = useState([]);
     const fetchData = async() => {
@@ -29,7 +28,7 @@ function DirectoryPage() {
     }; 
 
     fetchData();
-
+    console.log(employeesData)
     return (
         <div className="bg-gray-100">
         <section>
