@@ -28,14 +28,21 @@ function DirectoryPage() {
     }; 
 
     fetchData();
-    console.log(employeesData)
     return (
         <div className="bg-gray-100">
         <section>
           <input type="text" className="ml-20 mt-6 rounded-md p-2" placeholder="search"/>
         </section>
         <section className={"grid sm:grid-cols-2 lg:grid-cols-4 gap-6 p-20"}>
-          <ContactCell employeeList={employeesData}/>
+          <ContactCell/>
+          <ContactCell/>
+          <ContactCell/>
+          <ContactCell/>
+          <ContactCell/>
+          <ContactCell/>
+          <ContactCell/>
+          <ContactCell/>
+          <ContactCell/>
         </section>
       </div> 
     )
